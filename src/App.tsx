@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Header from "./components/Header";
+import Homepage from "./components/Homepage";
+import About from "./components/About";
+import FindBlueberries from "./components/FindBlueberries";
+import FindUnicorns from "./components/FindUnicorns";
+import PersonalProfile from "./components/PersonalProfile";
+import OtherUBUserProfile from "./components/OtherUBUserProfile";
+import Footer from "./components/Footer";
+import { useEffect } from "react";
+import { getProducts } from "./services/krogerService";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/find-unicorns" element={<FindUnicorns />} />
+          <Route path="/find-blueberries" element={<FindBlueberries />} />
+          <Route path="/user/personal" element={<PersonalProfile />} />
+          <Route path="/user/:uid" element={<OtherUBUserProfile />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

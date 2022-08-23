@@ -1,0 +1,253 @@
+.Homepage {
+  position: relative;
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.Homepage .bg-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: block;
+  background: url("/public/src/unicorn_background_mobile.jpg");
+  height: 100%;
+  background-size: 100% 100%;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  -ms-filter: blur(20px);
+  filter: blur(20px);
+  z-index: -1;
+
+  animation: unblur 2s 24s forwards;
+}
+
+@keyframes unblur {
+  to {
+    -webkit-filter: none;
+    -moz-filter: none;
+    -o-filter: none;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+
+.Homepage .skip-button {
+  position: absolute;
+  margin: 1%;
+  padding: 3px;
+  border: none;
+  border-radius: 2px;
+  font-family: "Roboto", sans-serif;
+
+  animation: disappear 1ms 24s forwards;
+}
+
+.Homepage .skip-button:hover {
+  cursor: pointer;
+}
+
+.Homepage .skip-button:active {
+  top: 1px;
+}
+
+@keyframes disappear {
+  to {
+    opacity: 0;
+  }
+}
+
+.Homepage .disappear {
+  display: none;
+}
+
+.Homepage .main-content {
+  margin: 3%;
+}
+
+.Homepage .welcome-text {
+  color: white;
+}
+
+.Homepage .part1 {
+  opacity: 0;
+  animation: showpart1 2s 1s forwards;
+}
+
+@keyframes showpart1 {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .part2 {
+  opacity: 0;
+  animation: showpart2 2s 3s forwards;
+}
+
+@keyframes showpart2 {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .part3 {
+  opacity: 0;
+  animation: showpart3 2s 6s forwards;
+}
+
+@keyframes showpart3 {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .part4 {
+  opacity: 0;
+  animation: showpart4 2s 8s forwards;
+}
+
+@keyframes showpart4 {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .part5 {
+  opacity: 0;
+  animation: showpart5 2s 11s forwards;
+}
+
+@keyframes showpart5 {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .part6 {
+  opacity: 0;
+  animation: showpart6 2s 13s forwards;
+}
+
+@keyframes showpart6 {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .part7 {
+  opacity: 0;
+  animation: showpart7 2s 16s forwards;
+}
+
+@keyframes showpart7 {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .part8 {
+  opacity: 0;
+  animation: showpart8 2s 18s forwards;
+}
+
+@keyframes showpart8 {
+  to {
+    opacity: 8;
+  }
+}
+
+.Homepage .part9 {
+  text-decoration: underline;
+  opacity: 0;
+  animation: showpart9 2s 20s forwards;
+}
+
+@keyframes showpart9 {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage h2 {
+  opacity: 0;
+  animation: welcome 3s 22s forwards;
+}
+
+@keyframes welcome {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .skip-animation {
+  animation: skip 1ms 0s forwards;
+}
+
+@keyframes skip {
+  to {
+    opacity: 1;
+  }
+}
+
+.Homepage .skip-container {
+  animation: skipcontainer 1ms 0s forwards;
+}
+
+@keyframes skipcontainer {
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .Homepage {
+    display: flex;
+  }
+
+  .Homepage .bg-image {
+    background: url("/public/src/unicorn_background.jpg");
+    background-size: 100% 100%;
+    height: 100%;
+  }
+
+  .Homepage .main-content {
+    margin: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-30%);
+
+    animation: moveleft 2s 22s forwards;
+  }
+
+  .Homepage .skip-main {
+    animation: skipmain 1ms 0s forwards;
+  }
+
+  @keyframes moveleft {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes skipmain {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .Homepage .welcome-text {
+    margin: 3%;
+    width: 60%;
+    font-size: 24px;
+  }
+
+  .Homepage h2 {
+    margin-top: 5%;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+  }
+}

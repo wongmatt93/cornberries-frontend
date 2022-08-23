@@ -1,0 +1,75 @@
+.UnicornNotesForm button {
+  position: relative;
+  background-color: rgba(193, 199, 235, 0.7);
+  margin: 0 auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 150px;
+  height: 30px;
+  font-family: "Roboto", sans-serif;
+}
+
+.UnicornNotesForm button:hover {
+  cursor: pointer;
+}
+
+.UnicornNotesForm button:active {
+  top: 1px;
+}
+
+.UnicornNotesFormOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.UnicornNotesFormModal {
+  background-color: #e9ebf8;
+  height: 50%;
+  width: 50%;
+  border-radius: 5px;
+  padding: 2%;
+}
+
+.UnicornNotesFormModal .share-exp {
+  text-align: center;
+}
+
+.UnicornNotesFormModal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.UnicornNotesFormModal input,
+.UnicornNotesFormModal textarea {
+  margin-bottom: 15px;
+}
+
+.UnicornNotesFormModal input {
+  height: 25px;
+}
+
+.UnicornNotesFormModal button {
+  position: relative;
+  background-color: #c1c7eb;
+  margin: 0 auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 25%;
+  height: 25px;
+  font-family: "Roboto", sans-serif;
+}
+
+.UnicornNotesFormModal button:hover {
+  cursor: pointer;
+}
+
+.UnicornNotesFormModal button:active {
+  top: 1px;
+}

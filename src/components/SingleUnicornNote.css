@@ -1,0 +1,28 @@
+.SingleUnicornNote {
+  border: 1px solid black;
+  background-color: linen;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.SingleUnicornNote .from {
+  margin: 5px 0 15px 5px;
+  font-size: 14px;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.2);
+}
+
+.SingleUnicornNote .comment {
+  margin-bottom: 10px;
+}
+
+.SingleUnicornNote .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.SingleUnicornNote .fa-solid:hover,
+.SingleUnicornNote .fa-regular:hover {
+  cursor: pointer;
+}

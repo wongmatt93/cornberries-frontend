@@ -1,0 +1,8 @@
+.Footer {
+  background-color: #8093f1;
+  height: 50px;
+  font-family: "Lato", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

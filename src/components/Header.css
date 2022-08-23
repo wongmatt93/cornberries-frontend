@@ -1,0 +1,138 @@
+.Header {
+  position: relative;
+  height: 85px;
+  background: #8093f1;
+  padding: 0 3%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Header h1 {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.Header .mobile-logo {
+  height: 80%;
+}
+
+.Header .desktop-logo {
+  display: none;
+}
+
+.Header .main-nav {
+  position: absolute;
+  top: 60px;
+  width: 94%;
+}
+
+.Header .main-nav-ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Header .active {
+  background-color: #5a72ed;
+}
+
+.Header .dropdown {
+  position: relative;
+}
+
+.Header .photo-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.Header .user-photo {
+  height: 40px;
+  border-radius: 50%;
+}
+
+.Header .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.Header .dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #474973;
+  width: 150px;
+  z-index: 1;
+}
+
+.Header .user-nav-li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  color: white;
+}
+
+.Header .user-nav-li:hover {
+  background-color: #7477aa;
+}
+
+.Header .sign-out:hover {
+  cursor: pointer;
+}
+
+.Header .sign-in-button {
+  position: relative;
+  width: 5%;
+  height: 50%;
+  font-family: "Roboto", sans-serif;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: #5a72ed;
+  color: white;
+}
+
+.Header .sign-in-button:hover {
+  cursor: pointer;
+}
+
+.Header .sign-in-button:active {
+  top: 1px;
+}
+
+@media only screen and (min-width: 768px) {
+  .Header {
+    height: 60px;
+    padding: 0 10px;
+    align-items: center;
+  }
+
+  .Header .mobile-logo {
+    display: none;
+  }
+
+  .Header .desktop-logo {
+    display: inline;
+    height: 80%;
+  }
+
+  .Header .main-nav {
+    position: static;
+  }
+
+  .Header .main-nav-ul {
+    justify-content: center;
+  }
+
+  .Header .main-nav-li {
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    color: white;
+  }
+
+  .Header .main-nav-li:not(.active):hover {
+    background-color: #91a1f3;
+  }
+}
