@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import AuthContextProvider from "./context/AuthContextProvider";
 import { UnicornNotesContextProvider } from "./context/UnicornNotesContextProvider";
 import { BlueberriesContextProvider } from "./context/BlueberriesContextProvider";
+import ProfilesContextProvider from "./context/ProfilesContextProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,11 +14,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <UnicornNotesContextProvider>
-        <BlueberriesContextProvider>
-          <App />
-        </BlueberriesContextProvider>
-      </UnicornNotesContextProvider>
+      <ProfilesContextProvider>
+        <UnicornNotesContextProvider>
+          <BlueberriesContextProvider>
+            <App />
+          </BlueberriesContextProvider>
+        </UnicornNotesContextProvider>
+      </ProfilesContextProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

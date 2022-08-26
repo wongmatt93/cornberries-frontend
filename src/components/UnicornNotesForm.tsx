@@ -8,7 +8,7 @@ Modal.setAppElement("#root");
 
 const UnicornNotesForm = () => {
   const { submitUnicornNote } = useContext(UnicornNotesContext);
-  const { user, userName } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -19,7 +19,7 @@ const UnicornNotesForm = () => {
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
-    submitUnicornNote({ title, by: userName, text, uid: user!.uid });
+    submitUnicornNote({ title, by: user!.displayName!, text, uid: user!.uid });
     setTitle("");
     setText("");
     closeModal();
@@ -45,7 +45,13 @@ const UnicornNotesForm = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
           <label htmlFor="by">By:</label>
-          <input type="text" name="by" id="by" value={userName} readOnly />
+          <input
+            type="text"
+            name="by"
+            id="by"
+            value={user!.displayName!}
+            readOnly
+          />
           <label htmlFor="comment">Comment:</label>
           <textarea
             name="comment"

@@ -1,6 +1,6 @@
 export default interface UserProfile {
-  _id?: string;
-  email: string;
+  id?: string;
+  email: string | null;
   displayName: string | null;
   phoneNumber: string | null;
   photoURL: string | null;

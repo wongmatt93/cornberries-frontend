@@ -15,8 +15,8 @@ const BlueberriesList = () => {
 
   return (
     <ul className="BlueberriesList">
-      {blueberryProducts.map((product) => (
-        <BlueberryProduct product={product} />
+      {blueberryProducts.map((product, index) => (
+        <BlueberryProduct key={index} product={product} />
       ))}
     </ul>
   );

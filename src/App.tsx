@@ -13,8 +13,6 @@ import FindUnicorns from "./components/FindUnicorns";
 import PersonalProfile from "./components/PersonalProfile";
 import OtherUBUserProfile from "./components/OtherUBUserProfile";
 import Footer from "./components/Footer";
-import { useEffect } from "react";
-import { getProducts } from "./services/krogerService";
 
 function App() {
   return (

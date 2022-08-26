@@ -1,7 +1,7 @@
 .About {
   position: relative;
   flex: 1;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 128, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +36,23 @@
     background-position: center;
     background-size: 125%;
     height: 100%;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
     z-index: -1;
+
+    animation: unblur 2s 0s forwards;
+  }
+
+  @keyframes unblur {
+    to {
+      -webkit-filter: none;
+      -moz-filter: none;
+      -o-filter: none;
+      -ms-filter: none;
+      filter: none;
+    }
   }
 }

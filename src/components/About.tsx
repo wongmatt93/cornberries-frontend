@@ -21,7 +21,8 @@ const About = () => {
           The first time I heard this, I was in shock. Why <em>can't</em> we use
           unicorns and blueberries? What did they ever do to you? But it wasn't
           enough for him. He'd say this many times during our class, like he had
-          some personal vendetta. So here I am, set outon a journey to show him:
+          some personal vendetta. So here I am, set out on a journey to show
+          him:
         </p>
         <p className="p-3">Maybe it is appropriate.</p>
       </section>
