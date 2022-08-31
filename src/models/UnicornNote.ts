@@ -4,4 +4,5 @@ export default interface UnicornNote {
   by: string;
   text: string;
   uid: string;
+  userPhoto: string;
 }

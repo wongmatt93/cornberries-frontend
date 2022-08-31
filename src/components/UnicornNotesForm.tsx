@@ -19,7 +19,13 @@ const UnicornNotesForm = () => {
 
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
-    submitUnicornNote({ title, by: user!.displayName!, text, uid: user!.uid });
+    submitUnicornNote({
+      title,
+      by: user!.displayName!,
+      text,
+      uid: user!.uid,
+      userPhoto: user!.photoURL!,
+    });
     setTitle("");
     setText("");
     closeModal();

@@ -1,21 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/AuthContext";
-import UnicornBuddies from "../models/UnicornBuddies";
-import { getUnicornBuddiesByUID } from "../services/unicornBuddiesService";
+import UnicornBuddiesContext from "../context/UnicornBuddiesContext";
 import "./PersonalProfile.css";
 
 const PersonalProfile = () => {
   const { user } = useContext(AuthContext);
-  const [unicornBuddies, setUnicornBuddies] = useState<UnicornBuddies[]>([]);
-  const [unicornInvites, setUnicornInvites] = useState<UnicornBuddies[]>([]);
-
-  useEffect(() => {
-    user &&
-      getUnicornBuddiesByUID(user!.uid).then((response) => {
-        setUnicornBuddies(response.filter((buddy) => buddy.accepted));
-        setUnicornInvites(response.filter((invite) => !invite.accepted));
-      });
-  }, []);
+  const { unicornBuddies, unicornInvites } = useContext(UnicornBuddiesContext);
 
   return (
     <main className="PersonalProfile">

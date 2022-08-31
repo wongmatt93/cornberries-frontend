@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import { UnicornNotesContext } from "../context/UnicornNotesContext";
 import Blueberry from "../models/Blueberry";
@@ -50,7 +51,16 @@ const SingleUnicornNote = ({ unicornNote }: Props) => {
   return (
     <li className="SingleUnicornNote">
       <h4>{unicornNote.title}</h4>
-      <p className="from">-from {unicornNote.by}</p>
+      {user && (
+        <p className="from">
+          - from <img src={unicornNote.userPhoto} alt="image" />
+          {user!.uid === unicornNote.uid ? (
+            <Link to="/user/personal">{unicornNote.by}</Link>
+          ) : (
+            <Link to={`/user/${unicornNote.uid}`}>{unicornNote.by}</Link>
+          )}
+        </p>
+      )}
       <p className="comment">{unicornNote.text}</p>
       <div className="buttons">
         {likedByYou ? (

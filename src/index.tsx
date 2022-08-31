@@ -7,6 +7,7 @@ import AuthContextProvider from "./context/AuthContextProvider";
 import { UnicornNotesContextProvider } from "./context/UnicornNotesContextProvider";
 import { BlueberriesContextProvider } from "./context/BlueberriesContextProvider";
 import ProfilesContextProvider from "./context/ProfilesContextProvider";
+import UnicornBuddiesContextProvider from "./context/UnicornBuddiesContextProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,9 +17,11 @@ root.render(
     <AuthContextProvider>
       <ProfilesContextProvider>
         <UnicornNotesContextProvider>
-          <BlueberriesContextProvider>
-            <App />
-          </BlueberriesContextProvider>
+          <UnicornBuddiesContextProvider>
+            <BlueberriesContextProvider>
+              <App />
+            </BlueberriesContextProvider>
+          </UnicornBuddiesContextProvider>
         </UnicornNotesContextProvider>
       </ProfilesContextProvider>
     </AuthContextProvider>
