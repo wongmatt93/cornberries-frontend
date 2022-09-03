@@ -19,9 +19,9 @@ const SingleUnicornNote = ({ unicornNote }: Props) => {
   const { user } = useContext(AuthContext);
   const { deleteUnicornNote } = useContext(UnicornNotesContext);
   const [blueberriesByNote, setBlueberriesByNote] = useState<Blueberry[]>([]);
+  const [likedByYou, setLikedByYou] = useState(false);
+  const [postedByYou, setPostedByYou] = useState(false);
 
-  let likedByYou: boolean = false;
-  let postedByYou: boolean = false;
   const blueberries: number = blueberriesByNote.length;
 
   const getAndSetBlueberries = (noteId: string) =>
@@ -41,12 +41,14 @@ const SingleUnicornNote = ({ unicornNote }: Props) => {
     deleteBlueberry(id, uid).then(() => getAndSetBlueberries(unicornNote._id!));
   };
 
-  if (user) {
-    likedByYou = blueberriesByNote.some(
-      (blueberry) => blueberry.uid === user.uid
-    );
-    postedByYou = unicornNote.uid === user.uid;
-  }
+  useEffect(() => {
+    if (user) {
+      setLikedByYou(
+        blueberriesByNote.some((blueberry) => blueberry.uid === user.uid)
+      );
+      setPostedByYou(unicornNote.uid === user.uid);
+    }
+  }, [user, blueberriesByNote]);
 
   return (
     <li className="SingleUnicornNote">
@@ -62,28 +64,36 @@ const SingleUnicornNote = ({ unicornNote }: Props) => {
         </p>
       )}
       <p className="comment">{unicornNote.text}</p>
+      {blueberries ? (
+        <p className="blueberries">{blueberries} blueberries</p>
+      ) : (
+        ""
+      )}
+      {postedByYou && (
+        <i
+          className="fa-solid fa-trash"
+          onClick={() => deleteUnicornNote(unicornNote._id!, blueberriesByNote)}
+        ></i>
+      )}
       <div className="buttons">
         {likedByYou ? (
-          <i
-            className="fa-solid fa-circle-xmark"
+          <button
+            className="blueberries-button"
             onClick={() => removeBlueberry(unicornNote._id!, user!.uid)}
-          >{` ${blueberries}`}</i>
+          >
+            Remove Blueberry
+          </button>
         ) : (
-          <i
-            className="fa-regular fa-circle-xmark"
+          <button
+            className="blueberries-button"
             onClick={() =>
               sendBlueberry({ notesId: unicornNote._id!, uid: user!.uid })
             }
-          >{` ${blueberries}`}</i>
+          >
+            Send Blueberry
+          </button>
         )}
-        {postedByYou && (
-          <i
-            className="fa-solid fa-trash"
-            onClick={() =>
-              deleteUnicornNote(unicornNote._id!, blueberriesByNote)
-            }
-          ></i>
-        )}
+        <button className="add-comment-button">Add Comment</button>
       </div>
     </li>
   );

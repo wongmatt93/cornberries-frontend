@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
+import ProfilesContext from "../context/ProfilesContext";
 import UnicornBuddiesContext from "../context/UnicornBuddiesContext";
+import UserProfile from "../models/UserProfile";
 import {
   acceptUnicornBuddy,
   addUnicornBuddy,
@@ -12,7 +14,9 @@ import "./OtherUBUserProfile.css";
 const OtherUBUserProfile = () => {
   const { user } = useContext(AuthContext);
   const { unicornBuddies, unicornInvites } = useContext(UnicornBuddiesContext);
+  const { getProfileByUid } = useContext(ProfilesContext);
   const [buddyStatus, setBuddyStatus] = useState("");
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const uid: string | undefined = useParams().uid;
 
   const handleAddBuddyClick = (): void => {
@@ -43,10 +47,12 @@ const OtherUBUserProfile = () => {
         setBuddyStatus("pending");
       }
     }
+    setUserProfile(getProfileByUid(uid!)!);
   }, [user, uid]);
 
   return (
-    <div className="OtherUBUserProfile">
+    <main className="OtherUBUserProfile">
+      <h2>{userProfile!.displayName}</h2>
       {buddyStatus === "buddies" ? (
         <p>Unicorn Buddies!</p>
       ) : buddyStatus === "pending" ? (
@@ -61,7 +67,7 @@ const OtherUBUserProfile = () => {
       ) : (
         <button onClick={handleAddBuddyClick}>Add Unicorn Buddy</button>
       )}
-    </div>
+    </main>
   );
 };
 

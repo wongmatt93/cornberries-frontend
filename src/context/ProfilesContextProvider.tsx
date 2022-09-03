@@ -16,8 +16,11 @@ const ProfilesContextProvider = ({ children }: Props) => {
     getAllProfiles().then((response) => setProfiles(response));
   }, [user]);
 
+  const getProfileByUid = (uid: string): UserProfile | undefined =>
+    profiles.find((profile) => profile.uid === uid);
+
   return (
-    <ProfilesContext.Provider value={{ profiles }}>
+    <ProfilesContext.Provider value={{ profiles, getProfileByUid }}>
       {children}
     </ProfilesContext.Provider>
   );
