@@ -3,10 +3,12 @@ import UserProfile from "../models/UserProfile";
 
 export interface ProfilesContextModel {
   profiles: UserProfile[];
+  getProfileByUid: (uid: string) => UserProfile | undefined;
 }
 
 const defaultValue: ProfilesContextModel = {
   profiles: [],
+  getProfileByUid: () => undefined,
 };
 
 const ProfilesContext = createContext(defaultValue);
