@@ -1,10 +1,14 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UnicornNotesContext } from "../context/UnicornNotesContext";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import "animate.css";
 
 import SingleUnicornNote from "./SingleUnicornNote";
 import "./UnicornNotesList.css";
 
 const UnicornNotesList = () => {
+  const [inProp, setInProp] = useState(false);
+
   const { unicornNotes, getAndSetUnicornNotes } =
     useContext(UnicornNotesContext);
 
@@ -12,12 +16,27 @@ const UnicornNotesList = () => {
     getAndSetUnicornNotes();
   }, []);
 
+  useEffect(() => {
+    setInProp(!inProp);
+  }, [unicornNotes]);
+
   return (
-    <ul className="UnicornNotesList">
-      {unicornNotes.map((unicornNote) => (
-        <SingleUnicornNote key={unicornNote._id} unicornNote={unicornNote} />
-      ))}
-    </ul>
+    <div className="UnicornNotesList">
+      <TransitionGroup component="ul">
+        {unicornNotes.map((unicornNote) => (
+          <CSSTransition
+            key={unicornNote._id}
+            classNames={{
+              enterActive: "animate__animated animate__fadeIn",
+              exitActive: "animate__animated animate__fadeOut",
+            }}
+            timeout={1000}
+          >
+            <SingleUnicornNote unicornNote={unicornNote} />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
+    </div>
   );
 };
 

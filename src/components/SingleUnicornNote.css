@@ -6,6 +6,24 @@
   margin: 10px;
 }
 
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: all 4s;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: all 4s;
+}
+
 .SingleUnicornNote .from {
   margin: 5px 0 15px 5px;
   font-size: 14px;
